@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CosmoDemo</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <canvas id="myCanvas" width="900" height="700" style="border:1px solid #000000;"></canvas>
+    <div class="button-container">
+        <button id="showMosaicImageEffect">Mosaic Image Effect</button>
+        <button id="showCosmicDust">Cosmic Dust</button>
+        <button id="showColorfulWaveAnimation">Colorful Wave</button>
+        <button id="showDigitalRain">Digital Rain</button>
+        <button id="showGalaxySpinner">Solar System</button>
+        <button id="showHypnoticSpiral">Hypnotic Spiral</button>
+        <button id="showElectricPlasma">Electric Plasma</button>
+        <button id="showFallingLeaves">Falling Leaves</button>
+        <button id="showLavaLamp">Lava</button>
+        <button id="showBigBangExplosion">Big Bang</button>
+    </div>
+
+    <script src="static/js/mosaicImageEffect.js"></script>
+    <script src="static/js/cosmicDust.js"></script>
+    <script src="static/js/colorfulWaveAnimation.js"></script>
+    <script src="static/js/digitalRain.js"></script>
+    <script src="static/js/galaxySpinner.js"></script>
+    <script src="static/js/hypnoticSpiral.js"></script>
+    <script src="static/js/electricPlasma.js"></script>
+    <script src="static/js/fallingLeaves.js"></script>
+    <script src="static/js/lavaLamp.js"></script>
+    <script src="static/js/bigBangExplosion.js"></script>
+    <script src="static/js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
