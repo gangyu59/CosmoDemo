@@ -5,6 +5,7 @@ function startMosaicImageEffect(canvas, ctx, clearCanvasAndStop) {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const pixelSize = 10;
+        let animationFrameId;
 
         function drawMosaic() {
             for (let y = 0; y < imageData.height; y += pixelSize) {
@@ -26,6 +27,13 @@ function startMosaicImageEffect(canvas, ctx, clearCanvasAndStop) {
             animationFrameId = requestAnimationFrame(animate);
         }
 
+        function stopMosaic() {
+            cancelAnimationFrame(animationFrameId);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        }
+
+        canvas.addEventListener('touchstart', stopMosaic, { once: true });
         clearCanvasAndStop();
         animate();
     };
