@@ -26,7 +26,6 @@ function startHypnoticSpiral(canvas, ctx, clearCanvasAndStop) {
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    clearCanvasAndStop();
     animate();
 }
 

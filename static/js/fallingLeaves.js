@@ -58,7 +58,6 @@ function startFallingLeaves(canvas, ctx, clearCanvasAndStop) {
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    clearCanvasAndStop();
     animate();
 }
 
