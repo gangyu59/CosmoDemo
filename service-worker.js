@@ -1,4 +1,4 @@
-const cacheName = 'cosmo-cache-v3';
+const cacheName = 'cosmo-cache-v4';
 const staticAssets = [
     './',
     './index.html',
