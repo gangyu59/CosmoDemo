@@ -52,9 +52,6 @@ function startBigBangExplosion(canvas, ctx, clearCanvasAndStop) {
     }
 
     function animate() {
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				ctx.fillStyle = 'black'; // 设置背景为黑色
-        ctx.fillRect(0, 0, canvas.width, canvas.height); // 填充背景
         drawParticles();
         updateParticles();
         animationFrameId = requestAnimationFrame(animate);

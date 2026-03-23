@@ -1,4 +1,4 @@
-const cacheName = 'visualizations-cache-v1';
+const cacheName = 'cosmo-cache-v2';
 const staticAssets = [
     './',
     './index.html',
@@ -23,6 +23,11 @@ self.addEventListener('install', async event => {
 });
 
 self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(keys =>
+            Promise.all(keys.filter(k => k !== cacheName).map(k => caches.delete(k)))
+        )
+    );
     self.clients.claim();
 });
 

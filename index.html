@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>CosmoDemo</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="manifest" href="/manifest.json">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宇宙演示 Cosmo Demo</title>
+    <link rel="manifest" href="./manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <canvas id="myCanvas" width="900" height="700" style="border:1px solid #000000;"></canvas>
-    <div class="button-container">
-        <button id="showMosaicImageEffect">Mosaic Image Effect</button>
-        <button id="showCosmicDust">Cosmic Dust</button>
-        <button id="showColorfulWaveAnimation">Colorful Wave</button>
-        <button id="showDigitalRain">Digital Rain</button>
-        <button id="showGalaxySpinner">Solar System</button>
-        <button id="showHypnoticSpiral">Hypnotic Spiral</button>
-        <button id="showElectricPlasma">Electric Plasma</button>
-        <button id="showFallingLeaves">Falling Leaves</button>
-        <button id="showLavaLamp">Lava</button>
-        <button id="showBigBangExplosion">Big Bang</button>
+    <header>
+        <h1>宇宙演示 Cosmo Demo</h1>
+        <p>点击按钮探索各种宇宙现象 · Click a button to explore cosmic phenomena</p>
+    </header>
+
+    <canvas id="myCanvas" width="900" height="700"></canvas>
+
+    <div class="button-grid">
+        <div class="section-label">星系 Stars &amp; Cosmos</div>
+        <button class="btn-cosmos" id="showBigBangExplosion">💥 Big Bang</button>
+        <button class="btn-cosmos" id="showCosmicDust">✨ Cosmic Dust</button>
+        <button class="btn-cosmos" id="showGalaxySpinner">🪐 Solar System</button>
+
+        <div class="section-label">能量 Energy &amp; Plasma</div>
+        <button class="btn-energy" id="showElectricPlasma">⚡ Electric Plasma</button>
+        <button class="btn-energy" id="showColorfulWaveAnimation">🌊 Colorful Wave</button>
+        <button class="btn-energy" id="showDigitalRain">🔢 Digital Rain</button>
+
+        <div class="section-label">图案 Patterns &amp; Spirals</div>
+        <button class="btn-pattern" id="showHypnoticSpiral">🌀 Hypnotic Spiral</button>
+        <button class="btn-pattern" id="showLavaLamp">🫧 Lava Lamp</button>
+
+        <div class="section-label">自然 Art &amp; Nature</div>
+        <button class="btn-nature" id="showMosaicImageEffect">🖼️ Mosaic Image</button>
+        <button class="btn-nature" id="showFallingLeaves">🍂 Falling Leaves</button>
     </div>
 
-    <script src="static/js/mosaicImageEffect.js"></script>
+    <script src="static/js/bigBangExplosion.js"></script>
     <script src="static/js/cosmicDust.js"></script>
+    <script src="static/js/galaxySpinner.js"></script>
+    <script src="static/js/electricPlasma.js"></script>
     <script src="static/js/colorfulWaveAnimation.js"></script>
     <script src="static/js/digitalRain.js"></script>
-    <script src="static/js/galaxySpinner.js"></script>
     <script src="static/js/hypnoticSpiral.js"></script>
-    <script src="static/js/electricPlasma.js"></script>
-    <script src="static/js/fallingLeaves.js"></script>
     <script src="static/js/lavaLamp.js"></script>
-    <script src="static/js/bigBangExplosion.js"></script>
+    <script src="static/js/mosaicImageEffect.js"></script>
+    <script src="static/js/fallingLeaves.js"></script>
     <script src="static/js/main.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
+                }, function (err) {
                     console.log('ServiceWorker registration failed: ', err);
                 });
             });

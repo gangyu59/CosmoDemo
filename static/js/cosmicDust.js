@@ -39,13 +39,11 @@ function startCosmicDust(canvas, ctx, clearCanvasAndStop) {
     }
 
     function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-				drawParticles();
+        drawParticles();
         updateParticles();
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    clearCanvasAndStop();
     animate();
 }
 
