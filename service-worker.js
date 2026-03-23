@@ -1,4 +1,4 @@
-const cacheName = 'cosmo-cache-v4';
+const cacheName = 'cosmo-cache-v5';
 const staticAssets = [
     './',
     './index.html',
@@ -13,7 +13,8 @@ const staticAssets = [
     './static/js/hypnoticSpiral.js',
     './static/js/cosmicDust.js',
     './static/js/lavaLamp.js',
-    './static/js/mosaicImageEffect.js'
+    './static/js/mosaicImageEffect.js',
+    './image/\u661f\u7a7a\u6b4c\u5267\u9662.png'
 ];
 
 self.addEventListener('install', async event => {
@@ -45,7 +46,14 @@ self.addEventListener('fetch', async event => {
 async function cacheFirst(req) {
     const cache = await caches.open(cacheName);
     const cached = await cache.match(req);
-    return cached || fetch(req);
+    if (cached) return cached;
+    try {
+        const fresh = await fetch(req);
+        cache.put(req, fresh.clone());
+        return fresh;
+    } catch (e) {
+        return new Response('Not found', { status: 404 });
+    }
 }
 
 async function networkAndCache(req) {
